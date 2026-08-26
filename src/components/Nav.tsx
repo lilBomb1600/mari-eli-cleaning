@@ -14,8 +14,11 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b-2 border-cobalt/20 bg-porcelain/90 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <span className="block h-8 w-8 border border-cobalt/40 p-1">
-            <AzulejoMotif variant="estrela" className="h-full w-full" />
+          <span className="grid h-8 w-8 grid-cols-2 grid-rows-2 gap-px border border-cobalt/40 bg-cobalt/40 p-px">
+            <AzulejoMotif variant="estrela" className="h-full w-full bg-porcelain p-0.5" />
+            <AzulejoMotif variant="flor" className="h-full w-full bg-porcelain p-0.5" />
+            <AzulejoMotif variant="losango" className="h-full w-full bg-porcelain p-0.5" />
+            <AzulejoMotif variant="quadra" className="h-full w-full bg-porcelain p-0.5" />
           </span>
           <span className="font-display text-sm font-bold tracking-tight text-cobalt-deep sm:text-base">
             Mari &amp; Eli

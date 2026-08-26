@@ -1,5 +1,5 @@
 import { DecorativeTile } from "./Tile";
-import { ScatterTile } from "./ScatterTile";
+import { AmbientTile } from "./AmbientTile";
 import { distanceDelay } from "@/lib/scatter";
 import { cn } from "@/lib/cn";
 
@@ -33,9 +33,9 @@ export function TileField({
         const row = Math.floor(i / cols);
         const delay = distanceDelay(col, row, kc, kr);
         return (
-          <ScatterTile key={i} index={i + seedOffset} delay={delay}>
+          <AmbientTile key={i} index={i + seedOffset} delay={delay}>
             <DecorativeTile index={i + seedOffset} />
-          </ScatterTile>
+          </AmbientTile>
         );
       })}
     </div>

@@ -4,10 +4,26 @@ import { AzulejoMotif } from "./tiles/AzulejoMotif";
 import { ScatterTile } from "./tiles/ScatterTile";
 import { business } from "@/data/business";
 
-function CornerMotif({ className }: { className?: string }) {
+function CornerMotif({
+  className,
+  variant = "losango",
+}: {
+  className?: string;
+  variant?: "losango" | "flor";
+}) {
   return (
     <AzulejoMotif
-      variant="losango"
+      variant={variant}
+      className={className}
+      ink="var(--color-cobalt-soft)"
+    />
+  );
+}
+
+function EdgeMotif({ className }: { className?: string }) {
+  return (
+    <AzulejoMotif
+      variant="estrela"
       className={className}
       ink="var(--color-cobalt-soft)"
     />
@@ -29,12 +45,14 @@ export function Hero() {
           <ScatterTile
             index={2}
             strength={0.6}
-            className="relative col-span-1 border-2 border-cobalt bg-porcelain px-6 py-10 shadow-[8px_8px_0_0_rgba(22,74,140,0.12)] sm:px-10 sm:py-12 lg:col-span-7"
+            className="relative col-span-1 border-2 border-cobalt bg-porcelain px-6 py-10 shadow-[0_24px_48px_-20px_rgba(12,47,114,0.35)] sm:px-10 sm:py-12 lg:col-span-7"
           >
-            <CornerMotif className="absolute -left-3 -top-3 h-6 w-6" />
-            <CornerMotif className="absolute -right-3 -top-3 h-6 w-6 rotate-90" />
-            <CornerMotif className="absolute -bottom-3 -left-3 h-6 w-6 -rotate-90" />
-            <CornerMotif className="absolute -bottom-3 -right-3 h-6 w-6 rotate-180" />
+            <CornerMotif variant="losango" className="absolute -left-3 -top-3 h-6 w-6" />
+            <CornerMotif variant="flor" className="absolute -right-3 -top-3 h-6 w-6 rotate-90" />
+            <CornerMotif variant="flor" className="absolute -bottom-3 -left-3 h-6 w-6 -rotate-90" />
+            <CornerMotif variant="losango" className="absolute -bottom-3 -right-3 h-6 w-6 rotate-180" />
+            <EdgeMotif className="absolute left-1/2 -top-3 h-6 w-6 -translate-x-1/2" />
+            <EdgeMotif className="absolute left-1/2 -bottom-3 h-6 w-6 -translate-x-1/2" />
 
             <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-cobalt-deep sm:text-6xl lg:text-7xl">
               Mari &amp; Eli
@@ -43,7 +61,12 @@ export function Hero() {
               {business.tagline}
             </p>
 
-            <div className="mt-8 inline-flex items-center gap-3 border-2 border-saffron-deep bg-saffron px-4 py-2">
+            <div className="relative mt-8 inline-flex items-center gap-3 border-2 border-saffron-deep bg-saffron px-4 py-2">
+              <AzulejoMotif
+                variant="quadra"
+                ink="var(--color-saffron-deep)"
+                className="absolute -right-2 -top-2 h-4 w-4 opacity-70"
+              />
               <span className="font-display text-lg font-bold text-cobalt-deep">
                 {business.rating}
               </span>
