@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --color-porcelain: #f1f0e8;
+  --color-porcelain-dim: #e8e6da;
+  --color-cobalt: #164a8c;
+  --color-cobalt-deep: #0c2f72;
+  --color-cobalt-soft: #4d76ab;
+  --color-saffron: #e8ac28;
+  --color-saffron-deep: #b9820f;
+  --color-ink: #10233f;
+}
+
+@theme inline {
+  --color-porcelain: var(--color-porcelain);
+  --color-porcelain-dim: var(--color-porcelain-dim);
+  --color-cobalt: var(--color-cobalt);
+  --color-cobalt-deep: var(--color-cobalt-deep);
+  --color-cobalt-soft: var(--color-cobalt-soft);
+  --color-saffron: var(--color-saffron);
+  --color-saffron-deep: var(--color-saffron-deep);
+  --color-ink: var(--color-ink);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-porcelain);
+  color: var(--color-cobalt-deep);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-cobalt-deep);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-porcelain-dim);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cobalt-soft);
+  border-radius: 999px;
+  border: 3px solid var(--color-porcelain-dim);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cobalt);
+}
+
+* {
+  scrollbar-color: var(--color-cobalt-soft) var(--color-porcelain-dim);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-saffron);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
