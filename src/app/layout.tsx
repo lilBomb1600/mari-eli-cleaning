@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Unbounded, Inter } from "next/font/google";
 import "./globals.css";
+import { JsonLd } from "@/components/JsonLd";
+import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo/config";
+import { siteJsonLd } from "@/lib/seo/jsonld";
+import { rootMetadata } from "@/lib/seo/metadata";
 
 const unbounded = Unbounded({
   variable: "--font-display",
@@ -13,11 +17,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Mari & Eli Cleaning Service | Concord, CA",
-  description:
-    "Mari & Eli will have your home Brazilian clean in no time. 4.8 stars, 122 reviews. Regular cleaning, deep cleaning, move-in/move-out, and maid services in Concord, Walnut Creek, San Ramon, Oakland & Dublin.",
-};
+// Base URL, robots (noindex while it's an unpaid preview), share card: src/lib/seo (LAUNCH-STANDARD.md).
+export const metadata: Metadata = rootMetadata({ title: HOME_TITLE, description: HOME_DESCRIPTION });
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
           review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
         */}
+        <JsonLd data={siteJsonLd()} />
         {children}
       </body>
     </html>
